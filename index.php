@@ -25,7 +25,6 @@ function entcheck($lines){
 
 //echo $container;
 function checkdir($dir="./"){
-$dir = "./";
 $container="";
 //  si le dossier pointe existe
 	if (is_dir($dir)) {
@@ -36,7 +35,7 @@ $container="";
 	       // boucler tant que quelque chose est trouve
 	       while (($file = readdir($dh)) !== false) {
 	       		if($file !=='index.php' && $file !=='.' && $file !=='..' && $file !=='.git'){
-	       			$file = file($file);
+	       			$file = file($dir.$file);
 	       			$container.=entcheck($file);
 	       			 //echo "fichier : $file : type : " . filetype($dir . $file) . "<br />\n";
 	       		}
